@@ -30,6 +30,11 @@ A comparitive analysis of advantages and disadvantages is required, in terms of 
 The current repository contains some test workflows (GitHub actions) that shall pass. Adaption of relevant definitions are also required, specifically in the CMake definitions.
 If it is judged convenient, it is possible to change the build system from `setuptools` to others, e.g. `scikit-build-core` or others.
 
+## Gauss-Legendre quadrature in the unit sphere
+Employ the relevant `numpy` and `scipy` routines to construct a product quadrature in the unit sphere, i.e. Gauss-Legendre in the polar angle and Gauss-Chebyshev or trapezoidal in the azimuthal angle.
+For a given set of quadrature orders, demonstrate numerically the capability of exact integration of the spherical harmonics, up to a chosen tolerance.
+Consider carefully the normalization of the spherical harmonics introduced by the `scipy` library.
+
 ## Milne problem: purely absorbing medium
 
 
