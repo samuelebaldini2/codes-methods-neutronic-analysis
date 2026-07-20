@@ -38,7 +38,25 @@ Consider carefully the normalization of the spherical harmonics introduced by th
 ## Milne problem: purely absorbing medium
 
 
-## Level-Symmetric nodes and weigths
+## 1-D diamond-difference discrete ordinates
+Consider a 1-D slab for which the following initial set of parameters are given:
+- length: $d = 5. \, \text{cm}$
+- total cross section: $\Sigma_t = 2. \, \text{cm}^{-1}$
+- scattering ratio: $c = 0.9$
+- external source: $s_\text{ext} = 10 \, \text{cm}^{-3}\text{s}^{-1}$
 
+As a starting parameter, employ a Gauss-Legendre quadrature of order $N = 4$.
 
-## 2-D diamond finite differences discrete ordinates
+Develop a $\text{S}_\text{n}$ solver that is capable of determing the flux in the slab for a source positioned uniformly in the slab or peaked in the center (i.e. uniform in the central region of the mesh chosen, width of your choice to be stated).
+Use a diamond-difference spatial scheme with a user-defined number of cells (verify grid independence). Iterate via standard source iteration. As a convergence cryterion, compare the scalar flux in each mesh cell or the right-hand side evaluation of the transport equation, at your choice.
+
+Observe the difference with void conditions in the left and right boundaries, with both reflective conditions, and with mixed void (left) and reflective (right) boundaries.
+
+Modify the scattering of the left and right half so that the scattering ratio is $0.5$ in the left and $0.99$ in the right and repeat the analysis.
+
+Proceed with a linear anisotropic scattering with $g=0.2$ and $p(\mu_0) = \frac{1}{2} (1 + 3 g \mu_0)$. The integral of the scattering cross section shall be equivalent to the $c = 0.9$ case.
+Consider also a forward peaked source in the shape of $s_\text{ext}(\mu) = 10 \cdot \frac{1}{2} (1 + \mu) \, \text{cm}^{-3}\text{s}^{-1}$.
+Plot the given scattering and source function and describe them.
+Update the $\text{S}_\text{n}$ solver to deal with this case as well.
+
+In all cases, observe the effects of the scattering ratio and boundary conditions in the number of iterations.
