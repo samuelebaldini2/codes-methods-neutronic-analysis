@@ -35,9 +35,6 @@ Employ the relevant `numpy` and `scipy` routines to construct a product quadratu
 For a given set of quadrature orders, demonstrate numerically the capability of exact integration of the spherical harmonics, up to a chosen tolerance.
 Consider carefully the normalization of the spherical harmonics introduced by the `scipy` library.
 
-## Milne problem: purely absorbing medium
-
-
 ## 1-D diamond-difference discrete ordinates
 Consider a 1-D slab for which the following initial set of parameters are given:
 - length: $d = 5. \, \text{cm}$
@@ -60,3 +57,9 @@ Plot the given scattering and source function and describe them.
 Update the $\text{S}_\text{n}$ solver to deal with this case as well.
 
 In all cases, observe the effects of the scattering ratio and boundary conditions in the number of iterations.
+
+## Milne problem: purely scattering medium (optional)
+Develop a numerical solution of the Milne problem with the $\text{P}_{n}$ (Legendre series expansion) approach for a purely scattering medium.
+Use the more convenient `numpy` built-in routines, when applicable.
+Employ Marshak-style boundary conditions for the closure of the numerical system.
+Observe the convergence of the extrapolation distance (condition at which the scalar flux would go to zero in case of a linear extrapolation, i.e. $0.7104$) increasing the (impair) order of the Legendre polynomial expansion.
