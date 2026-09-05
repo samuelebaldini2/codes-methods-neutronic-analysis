@@ -1,0 +1,9 @@
+From Remote to Local
+
+python3.11 -m pip uninstall miescat
+python3.11 -m pip install -e ./miev0-wrapper
+
+From Local to Remote
+
+python3.11 -m pip uninstall miescat
+python3.11 -m pip install miescat
