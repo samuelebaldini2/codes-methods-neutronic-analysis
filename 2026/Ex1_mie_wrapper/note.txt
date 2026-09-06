@@ -7,3 +7,7 @@ From Local to Remote
 
 python3.11 -m pip uninstall miescat
 python3.11 -m pip install miescat
+
+To create the f2py binding
+
+samuele@localhost:~/neutronics_course/codes-methods-neutronic-analysis/2026/Ex1_mie_wrapper/miev0-wrapper/miev> python3.11 -m numpy.f2py     -c     -m _mie_native     miewrapper.F90     MIEV0.f     ErrPack.f     only: compute_mie :

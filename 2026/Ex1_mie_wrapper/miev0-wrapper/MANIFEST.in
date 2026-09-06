@@ -1,0 +1,8 @@
+# SPDX-FileCopyrightText: 2026 Alberto P
+#
+# SPDX-License-Identifier: MPL-2.0
+
+include CMakeLists.txt
+recursive-include miev *
+recursive-include test *
+include REUSE.toml

@@ -1,0 +1,5 @@
+LicenseRef-Unclear
+
+This license is a placeholder for files whose license is unknown or not declared.
+It does not grant any additional rights or permissions beyond those that may
+be granted by the author of the licensed work.

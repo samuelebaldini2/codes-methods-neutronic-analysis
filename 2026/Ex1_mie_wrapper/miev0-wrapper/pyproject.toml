@@ -1,0 +1,74 @@
+# SPDX-FileCopyrightText: 2026 Alberto P
+#
+# SPDX-License-Identifier: MPL-2.0
+
+[build-system]
+requires = ["setuptools>=77.0.3", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "miescat"
+version = "0.2.2"
+description = "Mie scattering calculation based on MIEV0"
+readme = "README.md"
+requires-python = ">=3.9"
+license = "MPL-2.0"
+authors = [
+    { name = "Alberto P" }
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Fortran",
+    "Topic :: Scientific/Engineering :: Physics",
+]
+keywords = ["Mie", "scattering"]
+dependencies = [
+    "numpy"
+]
+
+[project.optional-dependencies]
+test = [
+    "pytest"
+]
+
+[project.scripts]
+mieleg = "miescat.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/alberto743/miev0-wrapper"
+Issues = "https://github.com/alberto743/miev0-wrapper/issues"
+
+# ---------------------------------------------------------------------------
+# cibuildwheel – cross-platform wheel building
+# ---------------------------------------------------------------------------
+
+[tool.cibuildwheel]
+# 32-bit targets dropped.
+skip  = "*-manylinux_i686 *-musllinux_i686 *-win32"
+test-requires = ["pytest"]
+test-command  = "pytest {project}/test -v"
+
+# Linux – manylinux (yum/dnf) and musllinux (apk)
+[tool.cibuildwheel.linux]
+before-build = "yum install -y cmake gcc-gfortran"
+
+[[tool.cibuildwheel.overrides]]
+select       = "*-musllinux*"
+before-build = "apk add --no-cache cmake gcc gfortran g++ make"
+
+# macOS
+[tool.cibuildwheel.macos]
+before-all = "brew install gcc@14 cmake || true"
+
+[tool.cibuildwheel.macos.environment]
+MACOSX_DEPLOYMENT_TARGET = "14.0"
+FC = "gfortran-14"
+CC = "gcc-14"
+CXX = "g++-14"
+
+# Windows
+[tool.cibuildwheel.windows]
+before-build = "C:/msys64/usr/bin/pacman.exe -S --noconfirm --needed mingw-w64-ucrt-x86_64-gcc mingw-w64-ucrt-x86_64-gcc-fortran mingw-w64-ucrt-x86_64-cmake mingw-w64-ucrt-x86_64-make"
+
+[tool.cibuildwheel.windows.environment]
+PATH = "C:/msys64/ucrt64/bin;C:/msys64/usr/bin;$PATH"

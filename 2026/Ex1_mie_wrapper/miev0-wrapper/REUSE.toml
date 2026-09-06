@@ -1,0 +1,25 @@
+# SPDX-FileCopyrightText: 2026 Alberto P
+#
+# SPDX-License-Identifier: MPL-2.0
+
+version = 1
+SPDX-PackageName = "miescat"
+SPDX-PackageSupplier = "Person: Alberto P"
+SPDX-PackageDownloadLocation = "https://github.com/alberto743/miev0-wrapper"
+
+
+[[annotations]]
+path = [".vscode/**"]
+precedence = "closest"
+SPDX-License-Identifier = "CC0-1.0"
+SPDX-FileCopyrightText = "2026 Alberto P"
+
+[[annotations]]
+path = [
+    "miev/ErrPack.f",
+    "miev/MIEV.doc",
+    "miev/MIEV0.f"
+]
+precedence = "closest"
+SPDX-License-Identifier = "LicenseRef-Unclear"
+SPDX-FileCopyrightText = "Warren J. Wiscombe"
