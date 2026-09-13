@@ -37,8 +37,6 @@ real, intent(out) :: radiation_pressure_efficiency
 
 integer, intent(out) :: number_of_moments
 
-! Transfer buffer to Python.
-! Only elements 1:number_of_moments+1 are meaningful.
 real, intent(out) :: legendre_moments(2205)
 
 

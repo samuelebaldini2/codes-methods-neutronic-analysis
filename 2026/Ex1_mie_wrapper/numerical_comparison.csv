@@ -1,0 +1,15 @@
+quantity,absolute_error,relative_error,max_absolute_error,mean_absolute_error,max_relative_error,mean_relative_error
+refractive_index_real,2.0272827860878806e-09,1.9828859498420572e-09,,,,
+refractive_index_imaginary,2.5818633689334014e-11,2.169633028440681e-09,,,,
+particle_radius,0.0,0.0,,,,
+wavelength,0.0,0.0,,,,
+size_parameter,2.8100586746404588e-08,1.1180867912547412e-09,,,,
+extinction_efficiency,2.8320301659334746e-10,2.7197814927904086e-10,,,,
+scattering_efficiency,2.1762086577226114e-10,4.463536310959533e-10,,,,
+absorption_efficiency,4.991760338413087e-10,9.014976386965692e-10,,,,
+sphere_geometric_cross_section,3.640502921342659e-07,2.897020179671176e-08,,,,
+single_scattering_albedo,2.5804136605245276e-10,5.511016592897826e-10,,,,
+asymmetry_factor,3.796386538468255e-10,3.8215354133625736e-10,,,,
+radiation_pressure_efficiency,7.720946104683435e-11,1.3863477486794228e-10,,,,
+number_of_moments,0.0,0.0,,,,
+legendre_moments,,,2.824340816776072e-08,4.586556273207794e-09,5.111338934260855e-08,2.012708581360127e-08

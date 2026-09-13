@@ -1,0 +1,26 @@
+[
+    {
+        "n_calls": 1,
+        "total_time_s": 0.23245459500003562,
+        "time_per_call_s": 0.23245459500003562,
+        "calls_per_second": 4.301915391261019
+    },
+    {
+        "n_calls": 5,
+        "total_time_s": 1.099813045999781,
+        "time_per_call_s": 0.2199626091999562,
+        "calls_per_second": 4.546227213966868
+    },
+    {
+        "n_calls": 10,
+        "total_time_s": 2.442369000999861,
+        "time_per_call_s": 0.24423690009998608,
+        "calls_per_second": 4.094385408554639
+    },
+    {
+        "n_calls": 20,
+        "total_time_s": 4.453281351999976,
+        "time_per_call_s": 0.22266406759999882,
+        "calls_per_second": 4.491070385889265
+    }
+]
