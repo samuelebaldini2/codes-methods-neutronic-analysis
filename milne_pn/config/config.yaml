@@ -1,0 +1,22 @@
+# config.yaml
+# Central configuration for the Milne PN solver. Loaded by
+# src/milne_pn/utils/config.py (falls back to built-in defaults if this
+# file or PyYAML is unavailable).
+
+solver:
+  n_max: 79
+  n_plot: 39
+  zero_tol: 1.0e-9
+  quad_multiplier: 4
+
+runge_analysis:
+  orders: [3, 9, 21, 41]
+  n_mu: 2000
+
+paths:
+  data_output: data/output
+  data_input: data/input
+  plots: data/output/plots
+
+reference:
+  z0_exact: 0.710446

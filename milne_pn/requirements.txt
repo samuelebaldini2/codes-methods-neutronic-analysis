@@ -1,0 +1,21 @@
+# Core (required)
+numpy>=1.23
+
+# Visualization and GUI (matplotlib is used by src/milne_pn/visualization,
+# examples, notebooks, AND embedded inside the Tkinter GUI plot tabs)
+matplotlib>=3.5
+
+# Tkinter itself ships with the Python standard library on most platforms,
+# but some minimal Linux distros split it out as a separate OS package
+# (e.g. Debian/Ubuntu: apt install python3-tk) -- there is no pip package
+# for it, so it is not listed here.
+
+# Config file support
+pyyaml>=6.0
+
+# Testing
+pytest>=7.0
+pytest-cov>=4.0
+
+# Notebooks
+jupyter>=1.0

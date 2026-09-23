@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "milne-pn"
+version = "0.1.0"
+description = "PN (Legendre) approximation solver for the Milne problem, with Runge/Gibbs-phenomenon analysis and a Tkinter GUI"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "milne-pn contributors" }]
+dependencies = [
+    "numpy>=1.23",
+]
+
+[project.optional-dependencies]
+viz = ["matplotlib>=3.5"]
+gui = ["matplotlib>=3.5"]
+dev = ["pytest>=7", "pytest-cov", "matplotlib>=3.5", "pyyaml"]
+notebooks = ["jupyter", "matplotlib>=3.5"]
+
+[project.scripts]
+milne-benchmark = "milne_pn.benchmarks.benchmark:cli"
+milne-gui = "milne_pn.gui.app:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
