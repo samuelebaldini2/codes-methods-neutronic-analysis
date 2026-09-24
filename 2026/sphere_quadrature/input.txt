@@ -1,0 +1,33 @@
+# Config for check: quadrature_nodes_3d
+# Copy the [QUADRATURE_NODES_3D] values into input.txt (and set
+# [ACTION] which=quadrature_nodes_3d there) to visualize the product
+# quadrature's nodes on the unit sphere in 3D. 2. polar_polynomial_exactness 3. orthonormality_beyond_resolution  4. gauss_chebyshev_trapezoidal_equivalence
+#                                              2. POLAR_POLYNOMIAL_EXACTNESS 3. ORTHONORMALITY_BEYOND_RESOLUTION  4. GAUSS_CHEBYSHEV_TRAPEZOIDAL_EQUIVALENCE
+
+[ACTION]
+which = gauss_chebyshev_trapezoidal_equivalence
+
+[GAUSS_CHEBYSHEV_TRAPEZOIDAL_EQUIVALENCE]
+n_mu = 6
+n_phi = 13
+azimuthal = trapezoidal
+
+# What to color each node by:
+#   weight   -> w_mu*w_phi, a property of the grid alone (default,
+#               generally the most useful/generic view)
+#   function -> w_mu*w_phi*f(mu,phi), i.e. each node's actual
+#               contribution to the quadrature sum for the f chosen
+#               below -- shows where positive/negative lobes cancel
+color_by = weight
+
+# --- only read when color_by = function ---
+# one of: constant, mu_power, spherical_harmonic
+test_function = spherical_harmonic
+# only used when test_function = mu_power
+k = 4
+# only used when test_function = spherical_harmonic (needs |m| <= n)
+n = 5
+m = 5
+
+[OUTPUT]
+output_folder = out
