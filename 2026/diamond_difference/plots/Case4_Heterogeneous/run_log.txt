@@ -1,0 +1,17 @@
+Problem definition (from input.txt):
+  thickness = 5.0 cm, cells = 100
+  material  = heterogeneous (sigma_t=2.0, c_left=0.5, c_right=0.99)
+  source    = uniform (intensity=10.0)
+  BC        = left=void, right=void
+  N_quad    = 4
+
+======================================================================
+SOLVE AND PLOT (comparing boundary conditions)
+======================================================================
+  BC=void/void      iterations=  198  phi_max=  74.5791  phi_min=   4.6738
+  BC=reflect/reflect   iterations=  496  phi_max= 185.9022  phi_min=  10.4093
+  BC=void/reflect   iterations=  496  phi_max= 185.8558  phi_min=   4.7528
+  -> saved ./es7//solution.png
+
+Done. Output written to: /home/rahil/course_201/zip_file/diamond_anysotropic[46]/es7
+(full console log saved to ./es7//run_log.txt)

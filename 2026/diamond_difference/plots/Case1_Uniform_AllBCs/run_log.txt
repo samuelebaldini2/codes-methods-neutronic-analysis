@@ -1,0 +1,37 @@
+Problem definition (from input.txt):
+  thickness = 5.0 cm, cells = 100
+  material  = homogeneous (sigma_t=2.0, c=0.9)
+  source    = uniform (intensity=10.0)
+  BC        = left=void, right=void
+  N_quad    = 4
+
+======================================================================
+SOLVE AND PLOT (comparing boundary conditions)
+======================================================================
+  BC=void/void      iterations=  128  phi_max=  45.1618  phi_min=  13.1953
+  BC=reflect/reflect   iterations=  165  phi_max=  50.0000  phi_min=  50.0000
+  BC=void/reflect   iterations=  156  phi_max=  49.6499  phi_min=  13.2840
+  -> saved ./es7//solution.png
+
+======================================================================
+GRID CONVERGENCE STUDY
+======================================================================
+  I=   3  dx=1.6667 cm  min edge psi =  1.2026e+01
+  I=   4  dx=1.2500 cm  min edge psi =  1.0767e+01
+  I=   5  dx=1.0000 cm  min edge psi =  1.1010e+01
+  I=   6  dx=0.8333 cm  min edge psi =  1.0970e+01
+  I=   8  dx=0.6250 cm  min edge psi =  1.0672e+01
+  I=  10  dx=0.5000 cm  min edge psi =  8.8099e+00
+  I=  15  dx=0.3333 cm  min edge psi =  6.0885e+00
+  I=  20  dx=0.2500 cm  min edge psi =  4.6270e+00
+  I=  30  dx=0.1667 cm  min edge psi =  3.1077e+00
+  I=  50  dx=0.1000 cm  min edge psi =  1.8636e+00
+  I=  80  dx=0.0625 cm  min edge psi =  1.1601e+00
+  I= 120  dx=0.0417 cm  min edge psi =  7.7046e-01
+  I= 200  dx=0.0250 cm  min edge psi =  4.6046e-01
+  I= 300  dx=0.0167 cm  min edge psi =  3.0626e-01
+
+  -> saved ./es7//grid_convergence.png
+
+Done. Output written to: /home/rahil/course_201/zip_file/diamond_anysotropic[46]/es7
+(full console log saved to ./es7//run_log.txt)

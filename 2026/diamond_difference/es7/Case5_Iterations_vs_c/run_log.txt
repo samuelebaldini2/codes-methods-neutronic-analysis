@@ -1,0 +1,17 @@
+Problem definition (from input.txt):
+  thickness = 5.0 cm, cells = 100
+  material  = heterogeneous (sigma_t=2.0, c_left=0.5, c_right=0.99)
+  source    = uniform (intensity=10.0)
+  BC        = left=void, right=void
+  N_quad    = 4
+
+======================================================================
+ITERATIONS vs SCATTERING RATIO c (0.2 -> 0.99) (comparing boundary conditions)
+======================================================================
+  BC=void/void      iters(c=0.2)=   13   iters(c=0.99)=  435
+  BC=reflect/reflect   iters(c=0.2)=   16   iters(c=0.99)= 1445
+  BC=void/reflect   iters(c=0.2)=   16   iters(c=0.99)=  881
+  -> saved ./es7//iterations_vs_c.png
+
+Done. Output written to: /home/rahil/course_201/zip_file/diamond_anysotropic[46]/es7
+(full console log saved to ./es7//run_log.txt)

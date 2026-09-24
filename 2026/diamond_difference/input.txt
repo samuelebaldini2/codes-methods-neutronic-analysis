@@ -1,0 +1,162 @@
+#############################################################################
+# INPUT FILE - 1D slab SN solver (diamond difference)
+#
+# This file describes ONE problem (geometry, material, source,
+# boundary conditions) and which analyses you want to run on it.
+#
+# To solve a different exercise, just change the values below and
+# run the program again.
+#############################################################################
+
+[GEOMETRY]
+# Slab thickness, in cm
+thickness_cm = 5.0
+
+# Number of spatial cells for the main solve/plot
+number_of_cells = 100
+
+
+[MATERIAL]
+# "homogeneous"   -> a single c value everywhere (use c below)
+# "heterogeneous" -> two zones, left half / right half of the slab
+#                    (use c_left and c_right below)
+mode = homogeneous
+
+# Total cross section Sigma_t, in cm^-1 (constant across the slab
+# in both modes)
+sigma_t_cm-1 = 1.8
+
+# Used only if mode = homogeneous. Scattering ratio c = Sigma_s/Sigma_t,
+# between 0 and 1.
+c = 0.9
+
+# Used only if mode = heterogeneous: c in the left half / right half
+# of the slab.
+c_left = 0.5
+c_right = 0.99
+
+# Linear-anisotropic (P1) extension, optional. Mean scattering cosine
+# g, with Sigma_s,1 = g*Sigma_s,0. Must satisfy -1/3 <= g <= 1/3.
+# Leave at 0.0 (or omit this line) for the plain isotropic case above.
+g = 0.2
+
+
+[SOURCE]
+# "uniform" -> constant source over the whole slab
+# "peaked"  -> source concentrated in a central region (same total
+#              strength as the uniform case, for comparability)
+type = uniform
+
+# External isotropic source strength Q, in cm^-3 s^-1
+intensity = 10.0
+
+# Used only if type = peaked: width of the central source region, in cm
+peaked_width_cm = 0.1
+
+# Linear-anisotropic extension, optional. Angular shape of the external
+# source: "isotropic" (uniform weight 1/2, default) or "forward_peaked"
+# (weight 1/2*(1+mu)). Leave as "isotropic" (or omit this line) for the
+# plain isotropic case.
+angular_shape = forward_peaked
+
+
+[BOUNDARY_CONDITIONS]
+# Each side is "void" (no incoming flux) or "reflect" (specular
+# reflection). Used by every action, UNLESS
+# compare_boundary_conditions = yes below (in that case "compare_list"
+# is used instead for solve_and_plot / iterations_vs_c_study).
+left = void
+right = void
+
+# Used only if [ACTIONS] compare_boundary_conditions = yes.
+# List of BC combinations to overlay on the same plot, comma-separated,
+# each written as "left-right".
+compare_list = void-void, reflect-reflect, void-reflect
+
+
+[ANGULAR_QUADRATURE]
+# Order of the Gauss-Legendre angular quadrature (even integer)
+order_N = 4
+
+
+[SOLVER]
+tolerance = 1e-8
+max_iterations = 20000
+
+
+#############################################################################
+# ACTIONS - choose what you want the program to do with the problem
+# defined above. Set each one to "yes" or "no". The section right
+# below each action only matters if that action is set to "yes".
+##############################################################################
+
+[ACTIONS]
+# Solve the problem above and save a plot of phi(x)
+solve_and_plot = yes
+
+# Compare the solution to the analytical infinite-medium value
+# phi0 = intensity / (sigma_t * (1 - c)).
+# Only valid for mode = homogeneous AND left = reflect AND right = reflect
+# (reflect/reflect approximates an infinite homogeneous medium).
+compare_with_analytical = no
+
+# Solve the same problem on several different meshes, to check grid
+# convergence and the diamond-difference negative-flux artifact
+# (most relevant with a peaked source and a fine mesh).
+grid_convergence_study = no
+
+# Solve the same problem for a range of scattering ratios c, to see
+# how the number of source-iterations grows as c approaches 1.
+iterations_vs_c_study = no
+
+# If yes, "solve_and_plot" and/or "iterations_vs_c_study" (whichever
+# is set to "yes" above) will overlay the BC combinations listed in
+# "compare_list" (see [BOUNDARY_CONDITIONS]) on a single plot, instead
+# of using the single left/right pair. Cannot be combined with
+# compare_with_analytical.
+compare_boundary_conditions = yes
+
+# Linear-anisotropic extension, optional: standalone plot of the
+# scattering phase function p(mu0) and the source angular shape
+# s_ext(mu) defined by [MATERIAL] g and [SOURCE] angular_shape above.
+# Does not require solve_and_plot; can be run on its own.
+plot_anisotropic_functions = yes
+
+
+[ANALYTICAL_COMPARISON]
+# Used only if compare_with_analytical = yes.
+# Optional: also check the analytical match on these mesh sizes
+# (comma-separated), printing a small convergence table, in addition to
+# the plot at [GEOMETRY] number_of_cells. Leave empty to skip this table
+# and only check number_of_cells.
+extra_cell_counts = 50, 100, 200, 400
+
+
+[GRID_CONVERGENCE_STUDY]
+# Used only if grid_convergence_study = yes.
+# List of cell counts to solve on, comma-separated.
+cell_counts = 3, 4, 5, 6, 8, 10, 15, 20, 30, 50, 80, 120, 200, 300
+
+# Subset of the above used to overlay phi(x) curves in the plot.
+cell_counts_for_plot = 4, 10, 20, 50, 200
+
+
+[ITERATIONS_VS_C_STUDY]
+# Used only if iterations_vs_c_study = yes
+# Range of c explored: from c_min to c_threshold with step
+# coarse_step, then from c_threshold to c_max with step fine_step
+# (finer steps near c=1, where iterations grow quickly).
+c_min = 0.20
+c_threshold = 0.90
+c_max = 0.99
+coarse_step = 0.05
+fine_step = 0.01
+
+# Max iterations allowed per solve in this study (can be higher than
+# [SOLVER] max_iterations, since near c=1 convergence is slow)
+max_iterations = 50000
+
+
+[OUTPUT]
+# Folder where plots (.png) are saved. Created if it doesn't exist.
+output_folder = ./LOL/

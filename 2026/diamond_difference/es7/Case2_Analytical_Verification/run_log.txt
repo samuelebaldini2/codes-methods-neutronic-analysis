@@ -1,0 +1,24 @@
+Problem definition (from input.txt):
+  thickness = 5.0 cm, cells = 100
+  material  = homogeneous (sigma_t=2.0, c=0.9)
+  source    = uniform (intensity=10.0)
+  BC        = left=reflect, right=reflect
+  N_quad    = 4
+
+======================================================================
+SOLVE AND PLOT
+======================================================================
+  cells=100  iterations=165  phi_max=50.0000  phi_min=50.0000
+  analytical phi0 = 50.00000000   max |phi - phi0| = 4.349e-06
+
+  Convergence check across several mesh sizes:
+    I=   50  iterations=  164  phi=49.99999522  |err|=4.778e-06
+    I=  100  iterations=  165  phi=49.99999565  |err|=4.349e-06
+    I=  200  iterations=  165  phi=49.99999564  |err|=4.361e-06
+    I=  400  iterations=  165  phi=49.99999563  |err|=4.367e-06
+
+  -> saved ./es7//analytical_convergence_table.txt
+  -> saved ./es7//solution.png
+
+Done. Output written to: /home/rahil/course_201/zip_file/diamond_anysotropic[46]/es7
+(full console log saved to ./es7//run_log.txt)

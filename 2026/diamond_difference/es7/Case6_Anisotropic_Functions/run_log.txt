@@ -1,0 +1,22 @@
+Problem definition (from input.txt):
+  thickness = 5.0 cm, cells = 100
+  material  = heterogeneous (sigma_t=2.0, c_left=0.5, c_right=0.99)
+  source    = uniform (intensity=10.0)
+  BC        = left=void, right=void
+  N_quad    = 4
+  anisotropy: g=0.2, source_angular_shape=forward_peaked
+
+======================================================================
+SOLVE AND PLOT
+======================================================================
+  cells=100  iterations=178  phi_max=68.2908  phi_min=3.1953
+  -> saved ./es7//solution.png
+
+======================================================================
+ANISOTROPIC SCATTERING / SOURCE SHAPE FUNCTIONS
+======================================================================
+  g = 0.2, source_angular_shape = forward_peaked
+  -> saved ./es7//anisotropic_functions.png
+
+Done. Output written to: /home/rahil/course_201/zip_file/diamond_anysotropic[46]/es7
+(full console log saved to ./es7//run_log.txt)

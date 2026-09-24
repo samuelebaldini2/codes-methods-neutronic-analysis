@@ -1,0 +1,8 @@
+Convergence check vs analytical solution
+analytical phi0 = 50.00000000
+
+      I  iterations             phi       abs_err
+     50         164     49.99999522     4.778e-06
+    100         165     49.99999565     4.349e-06
+    200         165     49.99999564     4.361e-06
+    400         165     49.99999563     4.367e-06
